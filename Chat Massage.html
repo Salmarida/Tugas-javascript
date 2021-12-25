@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <tittle>Soal 3</tittle>
+        <style media="screen">
+            .btn{
+                background-color: greenyellow;
+                height: 40px;
+                width: 40px;
+                display: table-cell;
+                align-content: center;
+                border: none;
+                cursor: pointer;
+                float: right;
+            }
+            .pesan1{
+                display: table-cell;
+                height: 40px;
+                border: none;
+                width: 90%;
+            }
+            .container{
+                display: table;
+                border: 1px;
+                padding: 5px;
+                width: 400px;
+                float: left;
+                background-color: green;
+            }
+            .pesanS1{
+                border: 1px solid;
+                height: 300px;
+                width: 400px;
+                margin-bottom: 10px;
+                overflow: scroll;
+                scroll-behavior: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align:center;">Chatbox</h1>
+        <h3 style="text-align: end;">Salma Rihhadatul 'Aisy</h3>
+        <h3 style="text-align: center;">Project 2</h3>
+        <div class="container">
+            <div class="pesanS1" id="pesanS1"></div>
+            <form onsubmit="KirimPesan()" id="Chatform1">
+              <input type="text" name="pesan1" id="pesan1" class="pesan1">
+              <button type="button" class="btn">Kirim</button>
+            </form>
+        </div>
+
+        <script type="text/javascript">
+            var form = document.getElementById("chatform1");
+            var terima = document.getElementById("pesan1");
+            var jawab = document.getElementById("pesanS1");
+            var chattt = terima.value;
+
+            function handleForm(event) {
+                event.preventDefault();
+            }
+
+            form.addEventListener("submit", handleForm);
+            function kirimpesan() {
+                jawab.innerHTML+= terima.value + "<br>";
+                scrollToBottom("pesanS1");
+                form.reset();
+            }
+            function scrollToBottom(id) {
+                var div = document.getElementById(id);
+                div.scrollTop = div.scrollHeight - div.clientHeight;
+            }
+
+        </script>
+    </body>
+
+  
